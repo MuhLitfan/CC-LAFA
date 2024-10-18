@@ -1,33 +1,64 @@
-const express = require('express');
-const connection = require('./config/database');
+// Login form Starts
+const loginOpnBtn = document.querySelector("#button-openform");
+const loginBox = document.querySelector(".container-login");
+const signupOpnBtn = document.querySelector(".button-login-signup");
+const signupBox = document.querySelector(".container-signup");
+const closebtn = document.querySelector(".closeButton");
+const closebtnSignUp =document.querySelector(".closeButtonSignup");
+const forgetPWLin =document.querySelector(".forgetPWLink");
+const forgetP =document.querySelector(".forgetPW");
+const closeButtonForgetP =document.querySelector(".closeButtonForgetPW")
 
-const app = express();
 
-app.use(express.json());
-
-// Insert a new user
-app.post('/users', (req, res) => {
-  const { username, type } = req.body;
-  connection.query('INSERT INTO users (username, type) VALUES (?, ?)', [username, type], (err, results) => {
-    if (err) {
-      return res.status(500).send(err);
+loginOpnBtn.addEventListener("click", function () {
+    if (loginBox.style.display === "none" || loginBox.style.display === "") {
+        loginBox.style.display = "block";
+    } else {
+        loginBox.style.display = "none";
     }
-    res.status(201).send({ id: results.insertId, username, type });
-  });
 });
 
-// Get all users
-app.get('/users', (req, res) => {
-  connection.query('SELECT * FROM users', (err, results) => {
-    if (err) {
-      return res.status(500).send(err);
+signupOpnBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
+    if (signupBox.style.display === "none" || signupBox.style.display === "") {
+        signupBox.style.display = "block";
+    } else {
+        signupBox.style.display = "none";
     }
-    res.send(results);
-  });
+    loginBox.style.display = "none";
 });
 
-const PORT = '3000';
-const HOST = '0.0.0.0';
-app.listen(PORT, HOST, () => {
-  console.log(`Server running at http://${HOST}:${PORT}/`);
+
+forgetPWLin.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
+    if (forgetP.style.display === "none" || forgetP.style.display === "") {
+        forgetP.style.display = "block";
+    } else {
+        forgetP.style.display = "none";
+    }
+    loginBox.style.display = "none";
+    signupBox.style.display = "none"
 });
+
+closebtn.addEventListener("click", function () {
+    if(loginBox.style.display === "block")
+    {
+        loginBox.style.display = "none";
+       
+    }
+})
+
+closebtnSignUp.addEventListener("click", function(){
+    if(signupBox.style.display === "block")
+    {
+        signupBox.style.display = "none";
+    }
+})
+
+closeButtonForgetP.addEventListener("click", function(){
+    if(forgetP.style.display === "block")
+    {
+        forgetP.style.display = "none";
+    }
+})
+// Login Form Ends
