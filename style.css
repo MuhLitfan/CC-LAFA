@@ -1,118 +1,107 @@
-html, body
-{
-margin-left: 4%;
-margin-right: 4%;
-margin-top: 0%;
-font-family: 'Times New Roman', Times, serif;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+--accent-color: rgb(255, 0, 0);
+--base-color: white;
+--text-color: #2E2B41;
+--input-color: #F3F0FF;
 }
-.topRow
-{
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: Poppins, Segoe UI, sans-serif ;
+    font-size: 12pt;
+    color: var(--text-color)
+}
+body{
+    min-height: 100vh;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+}
+.wrapper{
+    box-sizing: border-box;
+    background-color: var(--base-color);
+    height: 100vh;
+    width: max(40%, 600px);
+    padding: 10px;
+    border-radius: 0 20px 20px 0;
     display: flex;
-    gap: 19px;
-    justify-content: flex-end;
-   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.topRow button
-{
-    background: transparent;
+h1{
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+form{
+    width: min(400px, 100%);
+    margin-top: 20px;
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+form > div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form label{
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--accent-color);
+    fill:var(--base-color);
+    color: var(--base-color);
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+form input{
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border-radius: 0 10px 10px 0;
     border: none;
+    background-color: var(--input-color);
 }
-/* login form starts */
-.container-login, .container-signup, .forgetPW
-{
-    display: none;
-    
+form input:hover{
+    border: 2px solid var(--accent-color);
 }
-
-.closeButton, .closeButtonSignup, .closeButtonForgetPW
-{
-   position: relative;
-    left: 95%;
+button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 1000px;
+    padding: .85em 4em;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: 150ms ease;
 }
-
-.container-login, .forgetPW
-{
-position: fixed;
-left: 30%;
-top: 20%;
-padding: 10px;
-width: 500px;
-background-color: white;
-border: 2px solid green;
-border-radius: 10px;
+button:hover{
+    background-color: white;
+    color: black;
+    border: black;
+    border-radius: 10%;
 }
-
-.container-signup
-{
-    position: fixed;
-left: 30%;
-top: 10%;
-padding: 10px;
-
-background-color: white;
-border: 2px solid green;
-border-radius: 10px;
- max-height: 80vh; 
- /* overflow-y: auto; */
- overflow-y: auto;
- overflow-x: hidden;
- width: 500px;
-    
+button :focus{
+    outline: none;
+    background-color: var(--text-color);
 }
 
-.container-login form, .container-signup form, .forgetPW form
-{
-    display: grid;
-   gap: 5px;
-   padding: 10px;
-}
-
-.container-login label, .container-signup label, .forgetPW label
-{
-    color: green;
-    font-size: 17px;
-}
-
-.container-login input, .container-signup input, .forgetPW input
-{
-    height: 30px;
-    background-color: transparent;
-    opacity: 0.9;
-    border: 1px solid green;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-
-.loginbuttons
-{
-    display: flex;
-    margin: auto;
-    gap: 20px;
-}
-
-.button-login, .button-login-signup, #button-signup, .forgetPWBtn
-{
-    background-color: green;
-    width: 100px;
-    height: 40px;
-    border: 2px solid green;
-    border-radius: 5px;
-    color: white;
-    
-}
-#button-signup, .forgetPWBtn
-{
-    margin: auto;
-}
-/* login form ends */
-
-@media (max-width: 768px) {
-    .container-login, .container-signup, .forgetPW {
-        left: 10%; 
-        width: 80%; 
-        max-width: none; 
-    }
-}
-/* login form ends */
