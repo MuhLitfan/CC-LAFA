@@ -45,6 +45,7 @@ form{
     margin-top: 20px;
     margin-bottom: 1px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
 }
@@ -104,4 +105,3 @@ button :focus{
     outline: none;
     background-color: var(--text-color);
 }
-
