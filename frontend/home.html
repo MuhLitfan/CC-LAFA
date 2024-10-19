@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LAFA Homepage</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/home-styles.css">
+</head>
+<body>
+<div class="dashboard-1">
+<div class="text-content-title-2">
+<p class="text-3">Cloud Computing</p>
+</div>
+<p class="text-4">Welcome to LAFA</p>
+<div class="button-group-5">
+
+
+<div class="button-8">
+    <form action="/about" method="get">
+        <button class="text-7" type="submit">About</button>
+    </form>
+</div>
+
+<div class="button-9">
+  <script>
+    const logoutUser = async () => {
+        try {
+            const response = await fetch('/logout');
+            const data = await response.json();
+            if (data.result === 'SUCCESS') {
+                alert('User logout operation success.');
+                location.reload();
+                location.href = '/';
+            } else {
+                alert('User logout operation error (message: ' + data.message + ').');
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Request error!');
+        }
+    };
+  </script>
+  <button class="text-10" onclick="logoutUser()">Log Out</button>
+</div>
+
+</div>
+<img src="./img/logo-1-10.png" class="logo-1-10" alt="logo-1" />
+</div>
+
+</body>
+</html>

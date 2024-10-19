@@ -1,0 +1,86 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures the body takes the full height of the page */
+}
+
+body {
+    background-image: url('../img/bgaboutpage.png'); /* Replace with your image path */
+    background-size: cover;  /* Ensures the image covers the entire page */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Optional: keeps the background fixed during scrolling */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.about-container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;;
+    text-align: center;
+    margin: 10px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.name {
+    color: aqua;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.position {
+    color: gray;
+    font-size: 16px;
+}
+
+.email {
+    color: azure;
+    margin: 10px 0;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 5px;
+    font-size: 13.5px;
+}
+
+.social-media a:hover {
+    color: #0056b3;
+}

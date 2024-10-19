@@ -1,5 +1,11 @@
 # CC-LAFA
 
+This project is fully managed and developed by :
+- Abiyyu
+- Ari
+- Faris
+- Litfan
+
 ## Deployment
 
 **Environment =**
@@ -11,13 +17,7 @@
 3. Storage : 50GB
 4. OS : Ubuntu 22.04
 
-### Node.js Installation
-
-Node.js is for running the web application, built with JavaScript. The command bellow is how to install Node.js
-
-```bash
-apt install npm
-```
+## Setting Up Database
 
 ### MariaDB Installation
 
@@ -34,33 +34,39 @@ This command will take to multiple prompt for us to fill. Like for the root pass
 sudo mysql_secure_installation
 ```
 
-### MariaDB Setup Database
+### MariaDB Setup Database & User
 
-
+Create User named `lafa` with password and accesible from any IP and Domain
 ```bash
 CREATE USER 'lafa'@'%' IDENTIFIED BY '<DATABASE USER PASS>';
 ```
 
+Grant all privileges on user `lafa`
 ```bash
 >GRANT ALL PRIVILEGES ON *.* TO 'lafa'@'%' WITH GRANT OPTION;
 ```
 
+Update privileges
 ```bash
 FLUSH PRIVILEGES;
 ```
 
+List Allowed Host who can accessed User `lafa`, to make sure we can accessed it from Any IP & Domain
 ```bash
 SELECT host FROM mysql.user WHERE User = 'lafa';
 ```
 
+Create `nodejs` database
 ```bash
 CREATE DATABASE nodejs;
 ```
 
+Get into `nodejs` database
 ```bash
 USE nodejs;
 ```
 
+Create `users` table in `nodejs` database
 ```bash
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,12 +76,17 @@ CREATE TABLE users (
 );
 ```
 
-```bash
-ALTER USER 'lafa'@'%' IDENTIFIED BY 'CC-LAFA-1234-M4nt4b7iw4';
-```
+## Setting Up Database Manager
 
 ### PHPMyAdmin & Apache2 Installation
 
+```bash
+sudo apt install phpmyadmin apache2
+```
+
+### PHPMyAdmin Setup and Integration to MariaDB
+
+Connect PHPMyAdmin to MariaDB, edit `/etc/phpmyadmin/config-db.php`
 ```bash
 sudo apt install phpmyadmin apache2
 ```
