@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="wrapper">
         <h1>Welcome to Our Cloud Computing Project</h1>
-        <form>
+        <form action="/auth" method="post">
             <div>
-                <label for = "username-input">
+                <label for = "username">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-440q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-46q-54-53-125.5-83.5T480-360q-83 0-154.5 30.5T200-246v46Z"/></svg>
                 </label>
-                <input type="text" name="username" id="username-input" placeholder="Username">
+                <input type="text" name="username" id="username" placeholder="Username" required>
             </div>
-        </form>
-        <form>
              <div>
-                <label for = "username-input">
+                <label for = "password">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 120q-100 0-170-70T40-480q0-100 70-170t170-70q81 0 141.5 46T506-560h335l79 79-140 160-100-79-80 80-80-80h-14q-25 72-87 116t-139 44Z"/></svg>
                 </label>
-                <input type="password" name="password" id="password-input" placeholder="Password">
+                <input type="password" name="password" id="password" placeholder="Password" required>
             </div>
-        </form>
-        <button type="submit">Sign In</button>
+			<div>
+				<button type="submit">Log In</button>
+			</div>
+		</form>
     </div>
 </body>
 </html>

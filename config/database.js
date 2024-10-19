@@ -1,5 +1,3 @@
-const db_pass = console.log(process.env.DATABASE_PASS);
-
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({

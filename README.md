@@ -73,3 +73,9 @@ CREATE TABLE users (
 ```bash
 ALTER USER 'lafa'@'%' IDENTIFIED BY 'CC-LAFA-1234-M4nt4b7iw4';
 ```
+
+### PHPMyAdmin & Apache2 Installation
+
+```bash
+sudo apt install phpmyadmin apache2
+```
