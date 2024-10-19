@@ -160,20 +160,35 @@ This will make your app accesible from `http://0.0.0.0:3000`. That means any IP 
 1. You must have a Domain. In our case it's `ritufan.site`
 2. Register your Domain into [Dash Cloudflare](https://dash.cloudflare.com)
 3. After your domain is registered, go into `Zero Trust` on the Side Panel
+
 ![alt text](./README-FILES/image.png)
+
 4. Go to `Network > Tunnels` on the Side Panel
+
 ![alt text](./README-FILES/image-1.png)
+
 5. Create Tunnels
+
 ![alt text](./README-FILES/image-2.png)
+
 6. Select Cloudflared
+
 ![alt text](./README-FILES/image-3.png)
+
 7. Name your Tunnel, and then Save
 8. Install and run Connectors, there will be specific command provided depends on your environment. Select your environment and then run the command on your Host.
+
 ![alt text](./README-FILES/image-4.png)
+
 ![alt text](./README-FILES/image-5.png)
+
 9. Route your Tunnel
 - Public Hostname will route `Domain` to your App by `IP` and `Port`. For Example : 
+
 ![alt text](./README-FILES/image-6.png)
+
 - Private Hostname will expose your `Subnet` from the Connector Earlier. For Example :
+
 ![](./README-FILES/image-7.png)
+
 10. If all is setup correctly, your app should be accessable from the Domain you setup in the Public Hostname.
