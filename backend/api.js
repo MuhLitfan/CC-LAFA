@@ -36,7 +36,10 @@ const createRestApi = app => {
                                 else if (type == 'user') {
                                     request.session.loggedin = true;
                                     response.redirect(301, '/home');
-                                }
+                                } else {
+                                    response.send('Your account is not authorized to access this page!');
+                                    response.end();
+                                }                                
                             } else {
                                 response.send('Your account is not authorized to access this page!');
                                 response.end();
@@ -58,6 +61,7 @@ const createRestApi = app => {
     app.get('/logout', async (request, response) => {
         if (request.session.userId) {
             delete request.session.userId;
+            response.cookie('session_cookie', '', {expires: new Date(0)});
             response.json({result: 'SUCCESS'});
         } else {
             response.json({result: 'ERROR', message: 'User is not logged in.'});
@@ -67,7 +71,7 @@ const createRestApi = app => {
     // http://localhost:3000/home
     app.get('/home', function(request, response) {
         // If the user is loggedin
-        if (request.session.loggedin && request.session.userId) {
+        if ((request.session.loggedin || request.session.admin) && request.session.userId) {
             // Output username
             // response.send('Welcome back, ' + request.session.username + '!');
             response.sendFile(path.join(__dirname , '../frontend/home.html'));
@@ -83,6 +87,9 @@ const createRestApi = app => {
         if (request.session.admin && request.session.userId) {
             // Output username
             response.sendFile(path.join(__dirname , '../frontend/admin.html'));
+        } else if (request.session.loggedin && request.session.userId) {
+            // Not authorized
+            response.send('You are not authorized to view this page!');
         } else {
             // Not logged in
             response.send('Please login to view this page!');
@@ -95,6 +102,9 @@ const createRestApi = app => {
         if (request.session.admin && request.session.userId) {
             // Output username
             response.sendFile(path.join(__dirname , '../frontend/dashboard.html'));
+        } else if (request.session.loggedin && request.session.userId) {
+            // Not authorized
+            response.send('You are not authorized to view this page!');
         } else {
             // Not logged in
             response.send('Please login to view this page!');

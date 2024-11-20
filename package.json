@@ -1,8 +1,24 @@
 {
+  "name": "cc-lafa",
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "express-session": "^1.18.1",
-    "mysql2": "^3.11.3"
-  }
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "express-session": "^1.18.1",
+        "memorystore": "^1.6.7",
+        "mysql2": "^3.11.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhLitfan/CC-LAFA.git"
+  },
+  "author": "Muhammad Litfan Rahmansyah",
+  "bugs": {
+    "url": "https://github.com/MuhLitfan/CC-LAFA/issues"
+  },
+  "homepage": "https://github.com/MuhLitfan/CC-LAFA#readme"
 }
