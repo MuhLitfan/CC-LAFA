@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background-image: url('../img/bgaboutpage.png'); /* Replace with your image path */
+    background-image: url('../img/WhatsApp Image 2024-11-25 at 18.49.36.jpeg'); /* Replace with your image path */
     background-size: cover;  /* Ensures the image covers the entire page */
     background-position: center;  /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -58,7 +58,7 @@ h1 {
 }
 
 .name {
-    color: aqua;
+    color: #3d2daf;
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
