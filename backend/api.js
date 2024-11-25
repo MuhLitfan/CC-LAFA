@@ -1,8 +1,10 @@
 const path = require('path');
-const connection = require('./database.js');
+let connectionRequest = require('./database.js');
 
 const createRestApi = app => {
     // http://localhost:3000/auth
+    connection = connectionRequest();
+    
     app.post('/auth', function(request, response) {
         if (request.session.userId) {
             response.json({result: 'ERROR', message: 'User already logged in.'});
