@@ -17,7 +17,12 @@ module.exports = function () {
       user: 'lafa',
       password: db_pass,
       database: 'nodejs',
-      port: 3306
+      port: 3306,
+      enableKeepAlive: true,
+      keepAliveInitialDelay: 10000, // 0 by default.
+      waitForConnections: true,
+      // Keepalive configuration
+      connectTimeout: 10000, // 10 seconds
   });
 
   //Instantiate the connection

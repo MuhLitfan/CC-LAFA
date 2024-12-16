@@ -14,50 +14,61 @@ const createRestApi = app => {
             let password = request.body.password;
             // Ensure the input fields exists and are not empty
             if (username && password) {
-                // Execute SQL query that'll select the users from the database based on the specified username and password
-                connection.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], function(error, results) {
-                    // If there is an issue with the query, output the error
-                    if (error) throw error;
-                    // If the account exists
-                    if (results.length > 0) {
-                        // Store user session ID
-                        const user = results[0];
-                        request.session.userId = user.id;
-                        // Authenticate the user
-                        request.session.username = username;
-                        // Extract the user type from the results
-                        let type = results[0].type;
-                        // Redirect to home page
-                        connection.query('SELECT * FROM users WHERE type = ?', [type], function(error, results) {
-                            request.session.type = type;
-                            if (results.length > 0) {
-                                if (type == 'admin') {
-                                    request.session.admin = true;
-                                    response.redirect(301, '/admin');
-                                }
-                                else if (type == 'user') {
-                                    request.session.loggedin = true;
-                                    response.redirect(301, '/home');
-                                } else {
-                                    response.send('Your account is not authorized to access this page!');
-                                    response.end();
-                                }                                
-                            } else {
-                                response.send('Your account is not authorized to access this page!');
-                                response.end();
-                            }
-                        });
-                    } else {
-                        response.send('Incorrect Username and/or Password!');
-                        response.end();
-                    }			
-                });
-            } else {
+                // Execute SQL query that'll sel ect the users from the database based on the specified username and password
+                try {
+                    connection.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], function(error, results) {
+                        // If there is an issue with the query, output the error
+                        if (error) throw error;
+                        // If the account exists
+                        if (results.length > 0) {
+                            // Store user session ID
+                            const user = results[0];
+                            request.session.userId = user.id;
+                            // Authenticate the user
+                            request.session.username = username;
+                            // Extract the user type from the results
+                            let type = results[0].type;
+                            // Redirect to home page
+                            try {
+                                connection.query('SELECT * FROM users WHERE type = ?', [type], function(error, results) {
+                                    request.session.type = type;
+                                    if (results.length > 0) {
+                                        if (type == 'admin') {
+                                            request.session.admin = true;
+                                            response.redirect(301, '/admin');
+                                        }
+                                        else if (type == 'user') {
+                                            request.session.loggedin = true;
+                                            response.redirect(301, '/home');
+                                        } else {
+                                            response.send('Your account is not authorized to access this page!');
+                                            response.end();
+                                        }                                
+                                    } else {
+                                        response.send('Your account is not authorized to access this page!');
+                                        response.end();
+                                    }
+                                });
+                            } catch (err) {
+                                console.log(`Unable to acquire connection: ${err.message}`);
+                            } 
+                        } else {
+                            response.send('Incorrect Username and/or Password!');
+                            response.end();
+                        }			
+                    });   
+                } 
+                catch (err) {
+                            console.log(`Unable to acquire connection: ${err.message}`);
+                }
+            }
+            else {
                 response.send('Please enter Username and Password!');
                 response.end();
             }
         }
     });
+    
 
     // http://localhost:3000/logout
     app.get('/logout', async (request, response) => {
