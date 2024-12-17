@@ -1,53 +1,554 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>LAFA Homepage</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas Besar Cloud Computing TT-45-GAB01</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #b29aff, #c5c4fa, #4668bd, #c2e0fb);
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
+    }
 
-  <link rel="stylesheet" href="/css/home-styles.css">
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: linear-gradient(to right, rgba(181, 179, 226, 0.8), rgba(61, 45, 175, 0.8));
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #333;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to right, #7f7cb6, #281a8c);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #5fb2ff;
+      color: white;
+      border-radius: 5px;
+    }
+
+
+    nav a:hover {
+      background: #5fb2ff;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .team {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .team h2 {
+      margin-bottom: 40px;
+    }
+
+    .team, .contact {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .team h2, .contact h2 {
+      margin-bottom: 40px;
+    }
+
+
+    .team .member {
+      width: 260px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 1%;
+      display: inline-block;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team .member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .team .member img {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .team .member .info {
+      padding: 20px;
+    }
+
+    .team .member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+
+    .team .member p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .social-media a {
+      margin: 0 10px;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-media a:hover {
+      transform: scale(1.2);
+    }
+    
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #675fff;
+      transform: scale(1.2);
+    }
+
+    .projects a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #675fff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .projects a:hover {
+      background: #675fff;
+      transform: scale(1.05);
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 25px;
+      background: #675fff;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s ease;
+    }
+
+    .scroll-top:hover {
+      background: #675fff;
+    }
+
+    .contact form input, .contact form button {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact form button {
+      background: #675fff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact form button:hover {
+      background: #675fff;
+    }
+
+  </style>
 </head>
 <body>
-<div class="dashboard-1">
-<div class="text-content-title-2">
-<p class="text-3">Cloud Computing</p>
-</div>
-<p class="text-4">Welcome to LAFA</p>
-<div class="button-group-5">
 
+  <header>
+    <h1>Selamat Datang di Tugas Besar Cloud Computing TT-45-GAB01</h1>
+  </header>
+  
+  <nav>
+    <a href="#team">Tim</a>
+    <a href="#projects">Proyek</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+  
+  <div class="hero">
+    <div class="hero-text">
+    </div>
+  </div>
+  
+  <section class="team" id="team">
+    <h2>Anggota Tim</h2>
+    <div class="member">
+      <img src="./img/Foto Ari.jpg" alt="Ari">
+      <h3>Ari Syafi Adipurnomo</h3>
+      <p>arisyafi31@gmail.com</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/profile.php?id=100012766661839" target="_blank"><i class="fab fa-facebook" style="font-size: 24px; color: #3b5998; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="https://www.instagram.com/arisyafi/profilecard/?igsh=MWlpbWllN3M1ODBidA==" target="_blank"><i class="fab fa-instagram" style="font-size: 24px; color: #e4405f; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="https://www.linkedin.com/in/ari-syafi-67142b215/" target="_blank"><i class="fab fa-linkedin" style="font-size: 24px; color: #0077b5; margin: 0 10px;position: relative; bottom: 5px;"></i></a>
+    </div>
+    </div>
+    <div class="member">
+      <img src="./img/Foto Faris2.jpg" alt="Faris">
+      <h3>Faris Kautsar</h3>
+      <p>farisfrz02@gmail.com</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/profile.php?id=100012766661839" target="_blank"><i class="fab fa-facebook" style="font-size: 24px; color: #3b5998; position: relative; bottom: 5px; margin: 0 10px;"></i></a> |
+        <a href="https://www.instagram.com/farisktsr_/" target="_blank"><i class="fab fa-instagram" style="font-size: 24px; color: #e4405f; margin: 0 10px; position: relative; bottom: 5px;"></i></a> |
+        <a href="https://www.linkedin.com/in/faris-kautsar-853819178/" target="_blank"><i class="fab fa-linkedin" style="font-size: 24px; color: #0077b5; margin: 0 10px; position: relative; bottom: 5px;"></i></a>
+    </div>
+    </div>
+    <div class="member">
+      <img src="./img/Foto Abiyyu2.jpg" alt="Abiyyu">
+      <h3>Syahrizal Abiyyu H</h3>
+      <p>syahrizalabiyyu@gmail.com </p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/Syahrizalabiyyu/" target="_blank"><i class="fab fa-facebook" style="font-size: 24px; color: #3b5998; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="https://www.instagram.com/syahrizal_abiyyu/" target="_blank"><i class="fab fa-instagram" style="font-size: 24px; color: #e4405f; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="http://www.linkedin.com/in/syahrizal-abiyyu-hidayatullah-a7758229a" target="_blank"><i class="fab fa-linkedin" style="font-size: 24px; color: #0077b5; margin: 0 10px;position: relative; bottom: 5px;"></i></a>
+    </div>
+    </div>
+    <div class="member">
+      <img src="./img/Foto Litfan2.jpg" alt="Litfan">
+      <h3>Muhammad Litfan R</h3>
+      <p>muhlitfan88@gmail.com</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/profile.php?id=61552582083917" target="_blank"><i class="fab fa-facebook" style="font-size: 24px; color: #3b5998; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="https://www.instagram.com/muhlitfan" target="_blank"><i class="fab fa-instagram" style="font-size: 24px; color: #e4405f; margin: 0 10px;position: relative; bottom: 5px;"></i></a> |
+        <a href="https://linkedin.com/in/muhlitfan88" target="_blank"><i class="fab fa-linkedin" style="font-size: 24px; color: #0077b5; margin: 0 10px;position: relative; bottom: 5px;"></i></a>
+    </div>
+    </div>
+  </section>
+  
+<!-- PAJAK -->
 
-<div class="button-8">
-    <form action="/about" method="get">
-        <button class="text-7" type="submit">About</button>
-    </form>
-</div>
+  <section class="projects" id="projects">
+      <h2>Prediksi Pajak</h2>
+      
+      <form action="/ai/pajak" method="GET" id="apiFormPajak">
+          <button type="submit" class="submit-btn">Get Data</button>
+      </form>
+      
+      <div id="apiResponsePajak" class="response-container"></div>
+  </section>
 
-<div class="button-9">
+  <style>
+      .projects form {
+          max-width: 500px;
+          margin: 20px auto;
+          text-align: center;
+      }
+
+      .submit-btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+      }
+
+      .submit-btn:hover {
+          background-color: #45a049;
+      }
+
+      .response-container {
+          margin: 20px auto;
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          max-width: 500px;
+          min-height: 50px;
+          display: none;
+      }
+      .loading {
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+        color: #666;
+      }
+  </style>
+
   <script>
-    const logoutUser = async () => {
-        try {
-            const response = await fetch('/logout');
-            const data = await response.json();
-            if (data.result === 'SUCCESS') {
-                alert('User logout operation success.');
-                location.reload();
-                location.href = '/';
-            } else {
-                alert('User logout operation error (message: ' + data.message + ').');
-            }
-        } catch(e) {
-            console.error(e);
-            alert('Request error!');
+  document.getElementById('apiFormPajak').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const responseDiv = document.getElementById('apiResponsePajak');
+      
+      try {
+        // Show loading state
+        responseDiv.style.display = 'block';
+        responseDiv.innerHTML = '<div class="loading">Generating image...</div>';
+        
+        const response = await fetch('/ai/pajak', {
+            method: 'GET'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    };
+    
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        
+        // Display the image
+        responseDiv.innerHTML = `
+            <img src="${imageUrl}" alt="Tax Prediction Graph" style="max-width: 100%; height: auto;">
+        `;
+      } catch (error) {
+          responseDiv.style.display = 'block';
+          responseDiv.innerHTML = 'Error: ' + error.message;
+      }
+  });
   </script>
-  <button class="text-10" onclick="logoutUser()">Log Out</button>
-</div>
 
-</div>
-<img src="./img/logo-1-10.png" class="logo-1-10" alt="logo-1" />
-</div>
 
-</body>
-</html>
+<!-- APBN -->
+
+<section class="projects" id="projects">
+  <h2>Prediksi APBN</h2>
+  
+  <form action="/ai/apbn" method="GET" id="apiFormAPBN">
+      <button type="submit" class="submit-btn">Get Data</button>
+  </form>
+  
+  <div id="apiResponseAPBN" class="response-container"></div>
+</section>
+
+<style>
+  .projects form {
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: center;
+  }
+
+  .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+
+  .submit-btn:hover {
+      background-color: #45a049;
+  }
+
+  .response-container {
+      margin: 20px auto;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      max-width: 500px;
+      min-height: 50px;
+      display: none;
+  }
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+  }
+</style>
+
+<script>
+document.getElementById('apiFormAPBN').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const responseDiv = document.getElementById('apiResponseAPBN');
+  
+  try {
+    // Show loading state
+    responseDiv.style.display = 'block';
+    responseDiv.innerHTML = '<div class="loading">Generating image...</div>';
+    
+    const response = await fetch('/ai/apbn', {
+        method: 'GET'
+    });
+    
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const imageUrl = URL.createObjectURL(blob);
+    
+    // Display the image
+    responseDiv.innerHTML = `
+        <img src="${imageUrl}" alt="Tax Prediction Graph" style="max-width: 100%; height: auto;">
+    `;
+  } catch (error) {
+      responseDiv.style.display = 'block';
+      responseDiv.innerHTML = 'Error: ' + error.message;
+  }
+});
+</script>
+
+
+<!-- PDB -->
+
+<section class="projects" id="projects">
+  <h2>Prediksi PDB</h2>
+  
+  <form action="/ai/pdb" method="GET" id="apiFormPDB">
+      <button type="submit" class="submit-btn">Get Data</button>
+  </form>
+  
+  <div id="apiResponsePDB" class="response-container"></div>
+</section>
+
+<style>
+  .projects form {
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: center;
+  }
+
+  .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+
+  .submit-btn:hover {
+      background-color: #45a049;
+  }
+
+  .response-container {
+      margin: 20px auto;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      max-width: 500px;
+      min-height: 50px;
+      display: none;
+  }
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+  }
+</style>
+
+<script>
+document.getElementById('apiFormPDB').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const responseDiv = document.getElementById('apiResponsePDB');
+  
+  try {
+    // Show loading state
+    responseDiv.style.display = 'block';
+    responseDiv.innerHTML = '<div class="loading">Generating image...</div>';
+    
+    const response = await fetch('/ai/pdb', {
+        method: 'GET'
+    });
+    
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const imageUrl = URL.createObjectURL(blob);
+    
+    // Display the image
+    responseDiv.innerHTML = `
+        <img src="${imageUrl}" alt="Tax Prediction Graph" style="max-width: 100%; height: auto;">
+    `;
+  } catch (error) {
+      responseDiv.style.display = 'block';
+      responseDiv.innerHTML = 'Error: ' + error.message;
+  }
+});
+</script>
+  
+  <section class="contact" id="contact">
+    <h2>Hubungi Kami</h2>
+    <form action="/action_page.php">
+      <input type="text" placeholder="Nama" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Pesan" required>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+  
+  <footer>
+    <p>Ikuti Kami:</p>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <p>&copy; 2024 Cloud Computing TT-45-GAB01</p>
+  </footer>
+  
+  <div class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <script>
+    const scrollBtn = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+  
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  
+  </body>
+  </html>

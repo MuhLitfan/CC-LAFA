@@ -13,11 +13,11 @@ module.exports = function () {
 
   //Establish Connection to the DB
   let connection = mysql.createConnection({
-      host: '10.0.0.221',
+      host: 'localhost',
       user: 'lafa',
       password: db_pass,
       database: 'nodejs',
-      port: 3306,
+      port: 9906,
       enableKeepAlive: true,
       keepAliveInitialDelay: 10000, // 0 by default.
       waitForConnections: true,
